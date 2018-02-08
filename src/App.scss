@@ -1,13 +1,22 @@
-.App {
+body {
+  // background: #f7f7f7;
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+
+.App {
   background: #f7f7f7;
-  width: 30em;
-  height: 90vh;
-  padding: 8em 4em;
+  box-sizing: border-box;
+
+  @media (min-width: 500px) {
+    margin: 5vh auto;
+    width: 30em;
+    height: 90vh;
+    padding: 8em 4em;
+  }
+
+  width: 100vw;
+  height: 100vh;
+  padding: 20vh 10vw;
   box-sizing: border-box;
 }
 
@@ -32,21 +41,44 @@
 }
 
 .poem-content {
-  width: 22em;
-  height: 22em;
-  background: #f6e8e8;
+  background: #e4e7eb;
   vertical-align: middle;
-  line-height: 11em;
+  position: relative;
+
+  @media (min-width: 500px) {
+    width: 22em;
+    height: 22em;
+  }
+  @media (max-width: 500px) {
+    width: 80vw;
+    height: 80vw;
+  }
 
   &:before {
-    content: 'xx';
+    content: '“';
+    font-family: Geneva, sans-serif;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    color: #000;
+    text-shadow: #f7f7f7 4px 4px 1px;
+    font-size: 8em;
+  }
+
+  .poem-text {
+    position: absolute;
+    margin: 50% auto;
+    transform: translateY(-50%);
+    width: 100%;
   }
 }
 
-.footer {
-  position: absolute;
-  bottom: 1em;
+.poem-author {
+  line-height: 8em;
+}
 
+.poem-ctrl {
   .btn {
     border-radius: 100%;
     width: 4em;
@@ -55,10 +87,28 @@
     border: 1px #ccc solid;
     color: #ccc;
     font-size: .8em;
-    bottom: 1em;
   }
 
   .detail {
     left: 3em;
+    margin: 0 5em 0 0;
+  }
+
+  .random {
+    right: 3em;
+    margin: 0 0 0 5em;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+
+  a {
+    text-decoration: none;
+    color: #ddd;
   }
 }
