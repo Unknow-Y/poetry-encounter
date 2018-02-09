@@ -17,36 +17,31 @@ body {
   align-items: center;
 
   @media (min-width: 500px) {
+    min-height: 90vh;
     margin: 5vh auto;
     width: 30em;
-    height: 90vh;
+    height: 80vh;
     padding: 8em 4em;
   }
-
-  // width: 100vw;
-  // height: 100vh;
-  // padding: 20vh 10vw;
-  // box-sizing: border-box;
 }
 
 .poem-content {
-  background: #e4e7eb;
   vertical-align: middle;
   position: relative;
   margin-bottom: 5em;
+  border: 1px solid #e4e7eb;
 
   @media (min-width: 500px) {
-    width: 22em;
-    height: 22em;
-    min-height: 22em;
+    width: 20em;
+    height: 20em;
+    min-height: 20em;
   }
   @media (max-width: 500px) {
-    width: 80vw;
-    height: 80vw;
+    width: 78vw;
+    height: 78vw;
   }
 
-  &:before {
-    content: '“';
+  .sign {
     font-family: Geneva, sans-serif;
     display: block;
     position: absolute;
@@ -55,13 +50,76 @@ body {
     color: #000;
     text-shadow: #f7f7f7 4px 4px 1px;
     font-size: 8em;
+    z-index: 40;
+    transition: .8s;
+    transform-origin: center;
+
+    &.a {
+      animation-duration: .8s;
+      animation-name: kataA;
+    }
+
+    &.b {
+      animation-duration: .8s;
+      animation-name: kataB;
+    }
   }
 
-  .poem-text {
-    position: absolute;
-    margin: 50% auto;
-    transform: translateY(-50%);
+  @keyframes kataA {
+    50% {
+      transform: translate(-50%, -25%) rotate(-15deg);
+    }
+  }
+
+  @keyframes kataB {
+    50% {
+      transform: translate(-50%, -25%) rotate(16deg);
+    }
+  }
+
+
+  .flip {
+    height: 100%;
     width: 100%;
+    background: #e4e7eb;
+    transform-style: preserve-3d; 
+    transition: .8s;
+
+    .poem-text {
+      position: absolute;
+      margin: 50% auto;
+      transform: translateY(-50%);
+      width: 100%;
+      line-height: 2em;
+      transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+      z-index: 2;
+    }
+  
+    .poem-detail {
+      height: 100%;
+      width: 100%;
+      white-space: pre-line;
+      box-sizing: border-box;
+      padding: 3em 1em;
+      font-size: smaller;
+      overflow-y: scroll;
+      line-height: 2em;
+      text-align: left;
+      transform: rotateY(180deg);
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  
+    .poem-text, .poem-detail {
+      backface-visibility: hidden;
+      position: absolute;
+    }
+
+    &.fire {
+      transform: rotateY(180deg);
+    }
   }
 
   .poem-author {
@@ -73,10 +131,7 @@ body {
 }
 
 .poem-ctrl {
-  // position: absolute;
-  // bottom: 3em;
-  // left: 50%;
-  // transform: translateX(-50%);
+  z-index: 50;
 
   .btn {
     border-radius: 100%;
@@ -92,6 +147,11 @@ body {
     left: 3em;
     margin: 0 8em 0 0;
     display: block;
+  }
+
+  .on {
+    background: #f0f0f0;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
   .random {
