@@ -1,5 +1,4 @@
 body {
-  // background: #f7f7f7;
   text-align: center;
 
   @media (max-width: 400px) {
@@ -11,9 +10,11 @@ body {
   position: relative;
   background: #f7f7f7;
   box-sizing: border-box;
-  min-height: 670px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 
   @media (min-width: 500px) {
     margin: 5vh auto;
@@ -22,40 +23,22 @@ body {
     padding: 8em 4em;
   }
 
-  width: 100vw;
-  height: 100vh;
-  padding: 20vh 10vw;
-  box-sizing: border-box;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+  // width: 100vw;
+  // height: 100vh;
+  // padding: 20vh 10vw;
+  // box-sizing: border-box;
 }
 
 .poem-content {
   background: #e4e7eb;
   vertical-align: middle;
   position: relative;
+  margin-bottom: 5em;
 
   @media (min-width: 500px) {
     width: 22em;
     height: 22em;
+    min-height: 22em;
   }
   @media (max-width: 500px) {
     width: 80vw;
@@ -90,10 +73,10 @@ body {
 }
 
 .poem-ctrl {
-  position: absolute;
-  bottom: 3em;
-  left: 50%;
-  transform: translateX(-50%);
+  // position: absolute;
+  // bottom: 3em;
+  // left: 50%;
+  // transform: translateX(-50%);
 
   .btn {
     border-radius: 100%;
@@ -107,12 +90,13 @@ body {
 
   .detail {
     left: 3em;
-    margin: 0 5em 0 0;
+    margin: 0 8em 0 0;
+    display: block;
   }
 
   .random {
     right: 3em;
-    margin: 0 0 0 5em;
+    margin: 0 0 0 8em;
   }
 }
 

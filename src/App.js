@@ -14,9 +14,9 @@ class App extends Component {
           <span className="poem-author">- 岑参 -</span>
         </div>
         <div className="poem-ctrl">
-          <button className="btn detail">诗意</button>
-          <button className="btn random">邂逅</button>
-        </div>
+            <button className="btn detail">诗意</button>
+            <button className="btn random">邂逅</button>
+          </div>
         <footer className="footer">
           <a href="https://github.com/Unknow-Y/poetry-encounter">
              Code by Soyaine with ❤ host on GitHub
